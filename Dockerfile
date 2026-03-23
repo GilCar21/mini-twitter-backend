@@ -14,7 +14,7 @@ COPY . .
 RUN touch db.sqlite
 
 # Expose the port Elysia is running on
-EXPOSE 3000
+EXPOSE 8080
 
 # Run the application
 CMD ["bun", "run", "src/index.ts"]

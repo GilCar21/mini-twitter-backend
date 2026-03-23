@@ -49,7 +49,7 @@ const app = new Elysia()
   .use(authRoutes)
   .use(postRoutes)
   .listen({
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 8080,
     hostname: '0.0.0.0'
   });
 
