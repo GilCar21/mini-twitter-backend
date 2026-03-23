@@ -1,6 +1,16 @@
 import { Database } from "bun:sqlite";
+import { mkdirSync } from "fs";
+import { dirname } from "path";
 
 const dbFilePath = process.env.DB_FILE_PATH || "db.sqlite";
+
+try {
+  // Garante que a pasta /data exista antes do SQLite tentar criar o arquivo
+  mkdirSync(dirname(dbFilePath), { recursive: true });
+} catch (e) {
+  // Ignora se a pasta já existir
+}
+
 const db = new Database(dbFilePath, { create: true });
 
 // Habilitar Foreign Keys
